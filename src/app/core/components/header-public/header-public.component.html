@@ -1,0 +1,23 @@
+<header class="h-16  md:h-24 header-container   ">
+  <section class="h-full px-4 py-4 header md:pt-8 md:px-16">
+    <div class="content-logo">
+      <a [routerLink]="['/logout']">
+        <img src="../../../assets/img/bookflix-logo.png" alt="logo" class="w-auto h-6 md:h-16 ">
+      </a>
+    </div>
+    <nav class="sm:w-1/2 menu">
+      <ng-container *ngIf="!activeUrl">
+        <div>
+          <a class='py-1 px-1 xs:py-2 xs:px-2 text-xs btn-login md:text-lg md:px-4 md:py-2'
+            [routerLink]="['/register']">Unete
+            Ahora</a>
+        </div>
+        <div class="ml-2 xs>:ml-4 sm:ml-8">
+          <a class='py-1 px-1 xs:py-2 xs:px-2 text-xs btn-login md:text-lg md:px-4 md:py-2' [routerLink]="['/login']">
+            Iniciar Sesión
+          </a>
+        </div>
+      </ng-container>
+    </nav>
+  </section>
+</header>

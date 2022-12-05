@@ -1,0 +1,99 @@
+<ng-container *ngIf="!loading">
+  <app-header-public></app-header-public>
+  <section class="bg-transparent container__profile md:bg-login">
+    <div class="container__profile-form">
+      <section class="profile">
+        <h1 class="">
+          Registrate
+        </h1>
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+          <section class="form__grid">
+
+            <div class="container__form-input focus-within:border-none">
+              <input formControlName="name" type="name" name="name" placeholder=" " class="form__input"
+                [class.error-border]="this.registerForm.get('name')?.invalid && this.registerForm.get('name')?.touched">
+              <label for="name"
+                class="absolute top-0 px-2 py-4 mb-3 text-xs font-medium duration-300 bg-transparent md:text-sm -z-1 origin-0 text-gray_400">Nombre</label>
+              <mat-error class="error-text"
+                *ngIf="name?.errors?.['required'] && this.registerForm.get('name')?.touched">
+                El nombre es requerido
+              </mat-error>
+            </div>
+
+            <div class="container__form-input focus-within:border-none">
+              <input formControlName="email" type="email" name="email" placeholder=" " class="form__input"
+                [class.error-border]="this.registerForm.get('email')?.errors && this.registerForm.get('email')?.touched">
+              <label for="email"
+                class="absolute top-0 px-2 py-4 mb-3 text-xs font-medium duration-300 bg-transparent md:text-sm -z-1 origin-0 text-gray_400">Email</label>
+              <mat-error class="error-text"
+                *ngIf="email?.errors?.['required'] && this.registerForm.get('email')?.touched">
+                El correo electronico es requerido
+              </mat-error>
+              <mat-error class="error-text" *ngIf="email?.errors?.['email']">
+                Ingrese un email valido
+              </mat-error>
+            </div>
+
+            <div class="z-10 container__form-input focus-within:border-none">
+              <input formControlName="password" type="password" name="password" placeholder=" " class="form__input"
+                [class.error-border]="this.registerForm.get('password')?.invalid && this.registerForm.get('password')?.touched">
+              <label for="password"
+                class="absolute top-0 z-0 px-2 py-4 mb-3 text-xs font-medium duration-300 bg-transparent md:text-sm -z-1 origin-0 text-gray_400">Contraseña</label>
+              <mat-error class="error-text"
+                *ngIf="password?.errors?.['required'] && this.registerForm.get('password')?.touched">
+                La contraseña es requerida
+              </mat-error>
+            </div>
+
+            <div class="z-10 container__form-input focus-within:border-none">
+              <input formControlName="confirmPassword" type="password" name="confirmPassword" placeholder=" "
+                class="form__input"
+                [class.error-border]="this.registerForm.get('password')?.invalid && this.registerForm.get('password')?.touched">
+              <label for="password"
+                class="absolute top-0 z-0 px-2 pt-4 pb-2 mb-3 text-xs font-medium duration-300 bg-transparent md:text-sm -z-1 origin-0 text-gray_400">Confirmar</label>
+              <mat-error class="error-text"
+                *ngIf="confirmPassword?.errors?.['required'] && this.registerForm.get('confirmPassword')?.touched">
+                La confirmación de contraseña es requerida
+              </mat-error>
+            </div>
+            <mat-error class="error-text" *ngIf="registerForm.errors?.['passwordsDontMatch']">
+              Las contraseñas no coinciden
+            </mat-error>
+            <div class="container__form-input focus-within:border-none">
+              <select id="rol" class="bg-grey form__input">
+                <option class="text-gray_400" value="admin">Role</option>
+                <option class="text-gray_400" value="admin">Administrador</option>
+                <option class="text-gray_400" value="user">Usuario</option>
+              </select>
+              <label for="rol"
+                class="absolute top-0 px-2 py-4 mb-3 text-xs font-medium duration-300 bg-transparent md:text-sm -z-1 origin-0 text-gray_400"></label>
+              <mat-error class="error-text"
+                *ngIf="email?.errors?.['required'] && this.registerForm.get('role')?.touched">
+                El correo electronico es requerido
+              </mat-error>
+              <mat-error class="error-text" *ngIf="email?.errors?.['role']">
+                Ingrese un email valido
+              </mat-error>
+            </div>
+
+          </section>
+          <div class="container__form-buttom">
+            <button class="bg-nwred" type="submit" [disabled]="this.registerForm.invalid"
+              [class.bg-grey]="this.registerForm.invalid">
+              Registrate
+            </button>
+          </div>
+          <div class="w-full pt-6 text-gray_400 text-start">
+            <p class="text-xs md:text-sm">
+              Ya tienes cuenta? <a [routerLink]="['/login']" class="text-white hover:text-nwred">
+                Inicia Sesión</a>
+            </p>
+          </div>
+        </form>
+      </section>
+    </div>
+  </section>
+</ng-container>
+<ng-container *ngIf="loading">
+  <app-spinner></app-spinner>
+</ng-container>

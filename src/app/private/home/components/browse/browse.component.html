@@ -1,0 +1,255 @@
+<ng-container *ngIf="loading">
+  <app-spinner></app-spinner>
+</ng-container>
+<ng-container *ngIf="!loading">
+  <section class="z-0 flex flex-col bg-black_body ">
+    <div class="hero__browser">
+      <section class="flex flex-col md:w-3/4 efect-transition">
+        <div class="browse-title">
+          <h1 class="md:text-5xl">Solo en Bookflix</h1>
+        </div>
+        <p class="browse-sub-title ">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero amet illum possimus iusto, nemo unde quasi
+        </p>
+      </section>
+    </div>
+    <main class="flex items-start justify-center w-full min-h-screen browse-container">
+      <section class="box-border container__cards">
+        <section class="cards" data-dark>
+          <h2 class="bg-transparent title-category__card ">Agregados Recientemente</h2>
+          <div class="row" id="cards">
+            <div class="card" id="card" *ngFor="let book of books">
+              <div id="card-body" class="card-body">
+                <img class="card-img-top img__card" [src]="book.imgUrl" alt="">
+              </div>
+              <h5 id="title__card" class="bg-transparent title__card">{{book.name}}</h5>
+            </div>
+          </div>
+        </section>
+
+        <section class="cards" data-dark>
+          <h2 class="bg-transparent title-category__card ">Populares en Bootflix</h2>
+          <div class="row" id="cards">
+            <div class="card" id="card">
+              <div id="card-body" class="card-body">
+                <img class="card-img-top img__card" src="../../../../../assets/img/libros/terror1.png" alt="">
+              </div>
+            </div>
+
+            <div class="card" id="card">
+              <div id="card-body" class="card-body">
+                <img class="card-img-top img__card" src="../../../../../assets/img/libros/terror2.jpg" alt="">
+              </div>
+              <div>
+              </div>
+            </div>
+
+            <div class="card" id="card">
+              <div id="card-body" class="card-body">
+                <img class="card-img-top img__card" src="../../../../../assets/img/libros/terror3.jpg" alt="">
+              </div>
+            </div>
+
+            <div class="card" id="card">
+              <div id="card-body" class="card-body">
+                <img class="card-img-top img__card" src="../../../../../assets/img/libros/terror4.jpg" alt="">
+              </div>
+            </div>
+
+            <div class="card" id="card">
+              <div id="card-body" class="card-body">
+                <img class="card-img-top img__card" src="../../../../../assets/img/libros/extinsion.png" alt="">
+              </div>
+            </div>
+
+            <div class="card" id="card">
+              <div id="card-body" class="card-body">
+                <img class="card-img-top img__card" src="../../../../../assets/img/libros/terror6.jpg" alt="">
+              </div>
+            </div>
+
+            <div class="card" id="card">
+              <div id="card-body" class="card-body">
+                <img class="card-img-top img__card" src="../../../../../assets/img/libros/terror7.jpeg" alt="">
+              </div>
+            </div>
+
+            <div class="card" id="card">
+              <div id="card-body" class="card-body">
+                <img class="card-img-top img__card" src="../../../../../assets/img/libros/terror8.jpeg" alt="">
+              </div>
+            </div>
+
+          </div>
+        </section>
+        <section class="cards" data-dark>
+          <h2 class="bg-transparent title-category__card ">Populares en Bootflix</h2>
+          <div class="row" id="cards">
+            <div class="card" id="card">
+              <div id="card-body" class="card-body">
+                <img class="card-img-top img__card" src="../../../../../assets/img/libros/terror1.png" alt="">
+              </div>
+            </div>
+
+            <div class="card" id="card">
+              <div id="card-body" class="card-body">
+                <img class="card-img-top img__card" src="../../../../../assets/img/libros/terror2.jpg" alt="">
+              </div>
+              <div>
+              </div>
+            </div>
+
+            <div class="card" id="card">
+              <div id="card-body" class="card-body">
+                <img class="card-img-top img__card" src="../../../../../assets/img/libros/terror3.jpg" alt="">
+              </div>
+            </div>
+
+            <div class="card" id="card">
+              <div id="card-body" class="card-body">
+                <img class="card-img-top img__card" src="../../../../../assets/img/libros/terror4.jpg" alt="">
+              </div>
+            </div>
+
+            <div class="card" id="card">
+              <div id="card-body" class="card-body">
+                <img class="card-img-top img__card" src="../../../../../assets/img/libros/extinsion.png" alt="">
+              </div>
+            </div>
+
+            <div class="card" id="card">
+              <div id="card-body" class="card-body">
+                <img class="card-img-top img__card" src="../../../../../assets/img/libros/terror6.jpg" alt="">
+              </div>
+            </div>
+
+            <div class="card" id="card">
+              <div id="card-body" class="card-body">
+                <img class="card-img-top img__card" src="../../../../../assets/img/libros/terror7.jpeg" alt="">
+              </div>
+            </div>
+
+            <div class="card" id="card">
+              <div id="card-body" class="card-body">
+                <img class="card-img-top img__card" src="../../../../../assets/img/libros/terror8.jpeg" alt="">
+              </div>
+            </div>
+
+          </div>
+        </section>
+        <section class="cards" data-dark>
+          <h2 class="bg-transparent title-category__card ">Populares en Bootflix</h2>
+          <div class="row" id="cards">
+            <div class="card" id="card">
+              <div id="card-body" class="card-body">
+                <img class="card-img-top img__card" src="../../../../../assets/img/libros/terror1.png" alt="">
+              </div>
+            </div>
+
+            <div class="card" id="card">
+              <div id="card-body" class="card-body">
+                <img class="card-img-top img__card" src="../../../../../assets/img/libros/terror2.jpg" alt="">
+              </div>
+              <div>
+              </div>
+            </div>
+
+            <div class="card" id="card">
+              <div id="card-body" class="card-body">
+                <img class="card-img-top img__card" src="../../../../../assets/img/libros/terror3.jpg" alt="">
+              </div>
+            </div>
+
+            <div class="card" id="card">
+              <div id="card-body" class="card-body">
+                <img class="card-img-top img__card" src="../../../../../assets/img/libros/terror4.jpg" alt="">
+              </div>
+            </div>
+
+            <div class="card" id="card">
+              <div id="card-body" class="card-body">
+                <img class="card-img-top img__card" src="../../../../../assets/img/libros/extinsion.png" alt="">
+              </div>
+            </div>
+
+            <div class="card" id="card">
+              <div id="card-body" class="card-body">
+                <img class="card-img-top img__card" src="../../../../../assets/img/libros/terror6.jpg" alt="">
+              </div>
+            </div>
+
+            <div class="card" id="card">
+              <div id="card-body" class="card-body">
+                <img class="card-img-top img__card" src="../../../../../assets/img/libros/terror7.jpeg" alt="">
+              </div>
+            </div>
+
+            <div class="card" id="card">
+              <div id="card-body" class="card-body">
+                <img class="card-img-top img__card" src="../../../../../assets/img/libros/terror8.jpeg" alt="">
+              </div>
+            </div>
+
+          </div>
+        </section>
+        <section class="cards" data-dark>
+          <h2 class="bg-transparent title-category__card ">Populares en Bootflix</h2>
+          <div class="row" id="cards">
+            <div class="card" id="card">
+              <div id="card-body" class="card-body">
+                <img class="card-img-top img__card" src="../../../../../assets/img/libros/terror1.png" alt="">
+              </div>
+            </div>
+
+            <div class="card" id="card">
+              <div id="card-body" class="card-body">
+                <img class="card-img-top img__card" src="../../../../../assets/img/libros/terror2.jpg" alt="">
+              </div>
+              <div>
+              </div>
+            </div>
+
+            <div class="card" id="card">
+              <div id="card-body" class="card-body">
+                <img class="card-img-top img__card" src="../../../../../assets/img/libros/terror3.jpg" alt="">
+              </div>
+            </div>
+
+            <div class="card" id="card">
+              <div id="card-body" class="card-body">
+                <img class="card-img-top img__card" src="../../../../../assets/img/libros/terror4.jpg" alt="">
+              </div>
+            </div>
+
+            <div class="card" id="card">
+              <div id="card-body" class="card-body">
+                <img class="card-img-top img__card" src="../../../../../assets/img/libros/extinsion.png" alt="">
+              </div>
+            </div>
+
+            <div class="card" id="card">
+              <div id="card-body" class="card-body">
+                <img class="card-img-top img__card" src="../../../../../assets/img/libros/terror6.jpg" alt="">
+              </div>
+            </div>
+
+            <div class="card" id="card">
+              <div id="card-body" class="card-body">
+                <img class="card-img-top img__card" src="../../../../../assets/img/libros/terror7.jpeg" alt="">
+              </div>
+            </div>
+
+            <div class="card" id="card">
+              <div id="card-body" class="card-body">
+                <img class="card-img-top img__card" src="../../../../../assets/img/libros/terror8.jpeg" alt="">
+              </div>
+            </div>
+
+          </div>
+        </section>
+      </section>
+
+    </main>
+  </section>
+  <app-footer></app-footer>
+</ng-container>

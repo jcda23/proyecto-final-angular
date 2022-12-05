@@ -1,0 +1,19 @@
+<ng-container *ngIf="loading">
+  <app-spinner></app-spinner>
+</ng-container>
+<ng-container *ngIf="!loading">
+  <div class="bg-book">
+    <div class="button__book-container ">
+      <!-- <app-add-book-container></app-add-book-container> -->
+      <button class="absolute" mat-raised-button (click)="addBook()">
+        Añadir libro
+      </button>
+    </div>
+    <section class="book__container">
+      <h2 class="title-category__card ">Libros agregados por el administrador</h2>
+      <section class="cards__book-container pt-8">
+        <app-list-book></app-list-book>
+      </section>
+    </section>
+  </div>
+</ng-container>

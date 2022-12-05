@@ -1,0 +1,109 @@
+<ng-container *ngIf="loading">
+  <app-spinner></app-spinner>
+</ng-container>
+<ng-container *ngIf="!loading">
+  <app-header-private></app-header-private>
+  <div class="flex items-center justify-center min-h-screen bg-register">
+    <div class="col-span-12">
+      <div class="overflow-auto lg:overflow-visible pb-16">
+        <h2 class="text-white">LISTA DE USUARIOS FAKE</h2>
+        <table class="w-full table text-white border-separate space-y-6 text-sm bg-black_body  ">
+          <thead class="bg-gray-800 text-gray-500">
+            <tr>
+              <th class="p-3 pl-8 ">Avatar</th>
+              <th class="p-3 pl-8 ">Nombre</th>
+              <th class="p-3 pl-16 text-left">Correo</th>
+              <th class="p-3 pl-16 text-left">Role</th>
+              <th class="p-3 pl-16 pr-8 text-left">Action</th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let user of usersFakes ">
+            <tr class="bg-gray-800">
+              <td class="p-3 pl-8">
+                <div class="flex align-items-center">
+                  <img class="rounded-full h-12 w-12  object-cover"
+                    [src]="'../../../../../assets/img/image-placeholder.png'" alt="user image">
+                </div>
+              </td>
+              <td class="p-3 pl-14">
+                <div class="text-gray-500">{{ user.name}}</div>
+              </td>
+              <td class="p-3 pl-14">
+                <div class="text-gray-500">{{ user.email}}</div>
+              </td>
+              <td class="p-3 pl-14">
+                <span class="bg-green-400 text-gray-50 rounded-md px-2">Admin</span>
+              </td>
+              <td class="p-3 pl-14 ">
+                <a [routerLink]="['/create-user-fake']" class="text-gray-400 hover:text-gray-100  mx-2">
+                  <mat-icon class="avatar">library_add</mat-icon>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-gray-100  mx-2">
+                  <mat-icon class="avatar">edit</mat-icon>
+                </a>
+                <button (click)="deleteUser(user)" class="text-gray-400 hover:text-gray-100  ml-2">
+                  <mat-icon>delete_outline</mat-icon>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+      <div class="overflow-auto lg:overflow-visible">
+        <h2 class="text-white">LISTA DE USUARIOS REALES "NO DELETE"</h2>
+        <table class="w-full table text-white border-separate space-y-6 text-sm bg-black_body  ">
+          <thead class="bg-gray-800 text-gray-500">
+            <tr>
+              <th class="p-3 pl-8 ">Avatar</th>
+              <th class="p-3 pl-8 ">Nickname</th>
+              <th class="p-3 pl-8 ">Nombre</th>
+              <th class="p-3 pl-16 text-left">Correo</th>
+              <th class="p-3 pl-16 text-left">Admin</th>
+              <th class="p-3 pl-16 text-left">Editor</th>
+              <th class="p-3 pl-16 text-left">Usuario</th>
+              <th class="p-3 pl-16 pr-8 text-left">Action</th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let user of users ">
+            <tr class="bg-gray-800">
+              <td class="p-3 pl-8">
+                <div class="flex align-items-center">
+                  <img class="rounded-full h-12 w-12  object-cover"
+                    [src]="user.photoURL ?? '../../../../../assets/img/image-placeholder.png'">
+                </div>
+              </td>
+              <td class="p-3 pl-14">
+                <div class="text-gray-500">{{ user.displayName}}</div>
+              </td>
+              <td class="p-3 pl-14">
+                <div class="text-gray-500">{{ user.firstName}}</div>
+              </td>
+              <td class="p-3 pl-14">
+                <div class="text-gray-500">{{ user.email}}</div>
+              </td>
+              <td class="p-3 pl-14">
+                <span class="bg-green-400 text-gray-50 rounded-md px-2">{{ user.admin}}</span>
+              </td>
+              <td class="p-3 pl-14">
+                <span class="bg-green-400 text-gray-50 rounded-md px-2">{{ user.editor}}</span>
+              </td>
+              <td class="p-3 pl-14">
+                <span class="bg-green-400 text-gray-50 rounded-md px-2">true</span>
+              </td>
+              <td class="p-3 pl-14 ">
+                <a [routerLink]="['/register']" class="text-gray-400 hover:text-gray-100  mx-2">
+                  <mat-icon class="avatar">library_add</mat-icon>
+                </a>
+                <a [routerLink]="['/profile']" class="text-gray-400 hover:text-gray-100  mx-2">
+                  <mat-icon class="avatar">edit</mat-icon>
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+    </div>
+  </div>
+</ng-container>

@@ -1,0 +1,15 @@
+ /* Style the video: 100% width and height to cover the entire window */
+
+
+ .content-video {
+   min-width: 100vw;
+   min-height: 100vh;
+
+ }
+
+ #myVideo {
+   width: 100%;
+   overflow: hidden;
+   height: auto;
+   color: rgba(20, 20, 20, 07)
+ }

@@ -1,0 +1,179 @@
+    .hero__browser {
+      background-image: linear-gradient(360deg, rgba(0, 0, 0, .85) 10%, transparent),
+        url('../../../../../assets/img/audio-libro6.jpg');
+      min-width: 100vw;
+      min-height: 100vh;
+
+      @apply bg-no-repeat bg-cover bg-center absolute
+    }
+
+    .browse-container {
+      /*       position: absolute; */
+      min-width: 100vw;
+      min-height: 100vh;
+      padding-top: 60vh;
+      padding-bottom: 1rem;
+      flex-grow: 1;
+    }
+
+    @media (width >=1024px) {
+      .browse-container {
+        padding-top: 75vh;
+        padding-bottom: 6rem;
+      }
+    }
+
+    .container__cards {
+      position: relative;
+      left: 0;
+      right: 0;
+      width: 100%;
+      background: transparent;
+      color: #f1f1f1
+    }
+
+    @media (width >=1024px) {
+      /*      .browse-container {
+        position: absolute;
+      } */
+    }
+
+    .efect-transition {
+      padding: 0 3%;
+      transition-delay: 1s;
+      transition-duration: .75s;
+    }
+
+    .browse-title {
+      padding-top: 45%;
+      font-size: 2.75rem;
+      color: white;
+      word-wrap: break-word;
+      font-weight: 900;
+      line-height: 1.2;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px 4px rgb(0 0 0 / 40%);
+    }
+
+    @media (width >=768px) {
+      .browse-title {
+        padding-top: 60%;
+      }
+    }
+
+    @media (width >=900px) {
+      .browse-title {
+        padding-top: 60%;
+      }
+    }
+
+    @media (width >1024px) {
+      .browse-title {
+        padding-top: 30%;
+      }
+    }
+
+    .browse-sub-title {
+      font-size: 1.2rem;
+      width: 100%;
+      color: white;
+      text-shadow: 2px 2px 4px rgb(0 0 0 / 60%);
+    }
+
+    @media (width >=1024px) {
+      .browse-sub-title {
+        font-size: 1.4rem;
+      }
+    }
+
+    .cards {
+      width: 100vw;
+      margin-top: 1rem;
+      padding: 0 3%;
+      padding-bottom: 1rem;
+      border: none;
+      z-index: 99;
+      overflow: hidden;
+    }
+
+    .title-category__card {
+      display: block;
+      font-size: 1.5rem;
+      line-height: 1.25vw;
+      vertical-align: bottom;
+      font-weight: 600;
+      padding: 1.5rem 0;
+    }
+
+    @media (width >=500px) {
+      .title-category__card {
+        font-size: 1.7rem;
+      }
+    }
+
+    @media (width >=1024px) {
+      .title-category__card {
+        font-size: 1.8rem;
+      }
+    }
+
+    .row {
+      display: grid;
+      grid-template-rows: 100%;
+      grid-template-columns: repeat(auto-fill, minmax(25%, 1fr));
+      gap: .5rem;
+    }
+
+    @media (width >=1024px) {
+      .row {
+        display: grid;
+        grid-template-rows: 100%;
+        grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
+        gap: 1rem;
+        /*   row-gap: 1rem; */
+      }
+    }
+
+    .card {
+      border-radius: 2px;
+      overflow: hidden;
+      text-align: center;
+      transition: all 0.25s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 16px rgba(0, 0, 0, 0.);
+    }
+
+    .card-body {
+      /*       display: flex;
+      flex-wrap: wrap;
+      justify-content: space-center; */
+      display: flex;
+      justify-content: center;
+      align-items: space-between;
+      padding: 0;
+    }
+
+    .img__card {
+      /*    max-width: 250px;
+      max-height: 400px;
+      min-width: 125px;
+      min-height: 200px; */
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+
+    .title__card {
+      z-index: 0;
+      color: white;
+      padding-top: 5px;
+    }
+
+    @media (width >=1024px) {
+      .content-books {
+        top: 70vh;
+      }
+    }

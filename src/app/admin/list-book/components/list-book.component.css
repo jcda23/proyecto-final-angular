@@ -1,0 +1,118 @@
+.list__book-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+  grid-gap: 1rem;
+}
+
+@media(width>=500px) {
+  .list__book-grid {
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+    grid-gap: 1rem;
+  }
+}
+
+@media(width>=1024px) {
+  .list__book-grid {
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+    grid-gap: 1rem;
+  }
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 30px;
+}
+
+mat-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  margin: 0;
+  min-width: 100%;
+  height: 400px;
+  padding: 1rem 0;
+  border-radius: 10px;
+  border: thin solid white;
+  @apply bg-black_body text-white
+}
+
+mat-card img {
+  max-height: 190px;
+  object-fit: cover;
+  width: 100%;
+  padding: 0 1rem;
+  padding-top: 1rem;
+  border-radius: 10px;
+}
+
+mat-card-header {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+mat-card-content {
+  max-height: 50px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-left: 1rem;
+}
+
+mat-card-subtitle {
+  @apply text-white
+}
+
+mat-card-actions {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+
+/* .card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 30px;
+}
+
+mat-card {
+  align-items: center;
+  display: flex;
+  flex: 1 0 20%;
+  flex-direction: column;
+  margin: 5px;
+  max-width: 200px;
+}
+
+mat-card img {
+  height: 200px;
+  object-fit: cover;
+  width: 100%;
+}
+
+mat-card:hover {
+  box-shadow: 0 0 11px #cccccc;
+  cursor: pointer;
+
+}
+
+mat-card-content {
+  max-height: 50px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+ */

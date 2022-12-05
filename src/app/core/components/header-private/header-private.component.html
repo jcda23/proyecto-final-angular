@@ -1,0 +1,138 @@
+<section class="container__private-header">
+  <header class="header-custom ">
+    <section class="hedear__container">
+      <button (click)=" toggleMenu()" class="burger material-symbols-outlined" [ngClass]="{'burger__color':active}">
+        <mat-icon class="burger__icon" *ngIf="!active">menu</mat-icon>
+        <mat-icon class="burger__icon" *ngIf="active"> close </mat-icon>
+      </button>
+      <div class="logo visible__header" [ngClass]="{'hidden__header':active}">
+        <a [routerLink]="['/home']"> <img src="../../../../assets/img/bookflix-logo.png" alt="" /></a>
+      </div>
+      <ng-container *ngIf="!profileActive && addBookActive || !profileActive && addBookActive ">
+        <nav class="menu__desktop">
+          <a class="hidden" [routerLink]="['/home']">Inicio</a>
+          <a class="hidden" [routerLink]="['/my-list']">Mi lista</a>
+          <a class="hidden" href="#">Novedades</a>
+        </nav>
+        <div class="search visible__header" [ngClass]="{'hidden__header':active}">
+          <span>
+            <mat-icon>search</mat-icon>
+          </span>
+          <input spellcheck="false" type="text" class="search" id="search" placeholder="Search" />
+        </div>
+      </ng-container>
+    </section>
+  </header>
+
+  <!-- Menu mobile -->
+  <header class="header__mobile-container" [ngClass]="{'visible__header':active}">
+    <section class="relative left-0 right-0 header__mobile top-0-">
+      <nav class="relative flex flex-col menu__mobile down">
+        <section id="dropdawn-1" class="icon-hidden">
+          <div class="block overflow-hidden focus:outline-none down-content">
+            <mat-icon class="text-white">format_list_bulleted</mat-icon>
+            <div class="down-icon-1">
+              <mat-icon>arrow_drop_down</mat-icon>
+            </div>
+            <div class="up-icon-1">
+              <mat-icon>arrow_drop_up</mat-icon>
+            </div>
+          </div>
+
+          <div class="absolute hidden w-40 shadow-xl down-menu-1 left-2 top-5">
+            <div class="w-full h-8 bg-transparent"></div>
+            <mat-sidenav-container class="border__down">
+              <div class="block px-4 py-2 pt-4">
+                <mat-icon class="avatar">edit</mat-icon>
+                <a href="" class="pl-2 down-menu__link">Inicio</a>
+              </div>
+              <div class="block px-4 py-2">
+                <mat-icon class="avatar">person_add</mat-icon>
+                <a href="" class="pl-2 down-menu__link">Mis libros</a>
+              </div>
+              <div class="block px-4 py-2">
+                <mat-icon class="avatar">delete_forever</mat-icon>
+                <a href="" class="pl-2 down-menu__link">Novedades</a>
+              </div>
+            </mat-sidenav-container>
+          </div>
+        </section>
+        <button>
+          <mat-icon>notifications</mat-icon>
+        </button>
+
+        <section id="dropdawn-2">
+          <div class="relative block overflow-hidden focus:outline-none down-content">
+            <ng-container *ngIf="!isLogin">
+              <img [src]="'../../../assets/img/image-placeholder.png'" alt="img-profile"
+                class="object-cover rounded-md down-img">
+            </ng-container>
+            <ng-container *ngIf="user$ | async as user">
+              <img class="object-cover rounded-md down-img"
+                [src]="user.photoURL ?? '../../../../../assets/img/image-placeholder.png'">
+            </ng-container>
+            <div class="down-icon-2">
+              <mat-icon>arrow_drop_down</mat-icon>
+            </div>
+            <div class="up-icon-2">
+              <mat-icon>arrow_drop_up</mat-icon>
+            </div>
+          </div>
+          <div class="absolute hidden down-menu-2 right-6 top-5 w-52">
+            <mat-sidenav-container>
+              <div class="flex items-center justify-start w-full pl-4 my-4">
+                <ng-container *ngIf="!isLogin">
+                  <img class="rounded-md avatar" src="../../../assets/img/user-icon.png" />
+                </ng-container>
+                <ng-container *ngIf="user$ | async as user">
+                  <img class="rounded-md avatar"
+                    [src]="user.photoURL ?? '../../../../../assets/img/image-placeholder.png'">
+                  <h4 class="pl-2 name">{{user.email}}</h4>
+                </ng-container>
+              </div>
+              <mat-divider></mat-divider>
+              <div class="block px-4 py-2">
+                <mat-icon class="avatar">edit</mat-icon>
+                <a [routerLink]="['/profile']" class="pl-2 down-menu__link">Editar perfil real</a>
+              </div>
+
+              <ng-container *ngIf="this.currentUser['admin']">
+                <div class="block px-4 py-2">
+                  <mat-icon class="avatar">person_add</mat-icon>
+                  <a [routerLink]="['/create-user-fake']" class="pl-2 down-menu__link">Añadir usuario fake</a>
+                </div>
+                <div class="block px-4 py-2">
+                  <mat-icon class="avatar">edit</mat-icon>
+                  <a [routerLink]="['/list-users']" class="pl-2 down-menu__link">Editar/ Eliminar perfil fake</a>
+                </div>
+                <div class="block px-4 py-2">
+                  <mat-icon class="avatar">list</mat-icon>
+                  <a [routerLink]="['/list-users']" class="pl-2 down-menu__link">Lista de usuarios</a>
+                </div>
+                <div class="block px-4 py-2">
+                  <mat-icon class="avatar">library_add</mat-icon>
+                  <a [routerLink]="['/add-book']" class="pl-2 down-menu__link">Añadir Libro</a>
+                </div>
+                <div class="block px-4 py-2">
+                  <mat-icon class="avatar">edit</mat-icon>
+                  <a [routerLink]="['/add-book']" class="pl-2 down-menu__link">Editar libro</a>
+                </div>
+                <div class="block px-4 py-2">
+                  <mat-icon class="avatar">delete_sweep</mat-icon>
+                  <a href="" class="pl-2 down-menu__link">Eliminar Libro</a>
+                </div>
+              </ng-container>
+
+              <mat-divider></mat-divider>
+              <div class="block px-4 py-2">
+                <mat-icon class="avatar">person</mat-icon>
+                <a (click)="logout()" href="" class="pl-2 down-menu__link">Cerrar sesión</a>
+              </div>
+            </mat-sidenav-container>
+          </div>
+        </section>
+      </nav>
+    </section>
+  </header>
+</section>
+<span role="presentation" class="caret active"></span>

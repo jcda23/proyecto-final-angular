@@ -1,0 +1,58 @@
+<ng-container *ngIf="loading">
+  <app-spinner></app-spinner>
+</ng-container>
+<ng-container *ngIf="!loading">
+  <section class="bg-transparent container__profile md:bg-profile">
+    <ng-container *ngIf="user$ | async as user">
+      <div class="container__profile-form">
+        <section class="profile">
+          <div class="profile__image ">
+            <img class="" [src]="user.photoURL ?? '../../../../../assets/img/image-placeholder.png'" />
+            <button mat-mini-fab (click)="inputField.click()">
+              <mat-icon>edit</mat-icon>
+            </button>
+          </div>
+          <input #inputField hidden type="file" (change)="uploadFile($event, user)" />
+          <h1>
+            Actualizar Perfil
+          </h1>
+
+          <form [formGroup]="profileForm" (ngSubmit)="saveProfile()">
+            <section class="form__grid">
+              <div class="container__form-input focus-within:border-none">
+                <input formControlName="firstName" type="text" placeholder=" " class="form__input">
+                <label
+                  class="absolute top-0 px-2 py-4 mb-3 text-xs font-medium duration-300 bg-transparent md:text-sm -z-1 origin-0 text-gray_400">Nombre</label>
+              </div>
+              <div class="container__form-input focus-within:border-none">
+                <input formControlName="lastName" type="text" placeholder=" " class="form__input">
+                <label
+                  class="absolute top-0 px-2 py-4 mb-3 text-xs font-medium duration-300 bg-transparent md:text-sm -z-1 origin-0 text-gray_400">Apellido</label>
+              </div>
+              <div class="container__form-input focus-within:border-none">
+                <input formControlName="displayName" type="text" placeholder=" " class="form__input">
+                <label
+                  class="absolute top-0 px-2 py-4 mb-3 text-xs font-medium duration-300 bg-transparent md:text-sm -z-1 origin-0 text-gray_400">Nickname</label>
+              </div>
+              <div class="container__form-input focus-within:border-none">
+                <input formControlName="phone" type="number" placeholder=" " class="form__input">
+                <label
+                  class="absolute top-0 px-2 py-4 mb-3 text-xs font-medium duration-300 bg-transparent md:text-sm -z-1 origin-0 text-gray_400">Telefono</label>
+              </div>
+            </section>
+            <div class="container__form-input focus-within:border-none">
+              <input formControlName="address" type="text" placeholder=" " class="form__input">
+              <label
+                class="absolute top-0 px-2 py-4 mb-3 text-xs font-medium duration-300 bg-transparent md:text-sm -z-1 origin-0 text-gray_400">Dirección</label>
+            </div>
+            <div class="container__form-buttom">
+              <button class="bg-nwred" type="submit">
+                Actualizar
+              </button>
+            </div>
+          </form>
+        </section>
+      </div>
+    </ng-container>
+  </section>
+</ng-container>
