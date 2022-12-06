@@ -11,6 +11,7 @@ import { ProfileComponent } from './profile/components/profile/profile.component
 import { ProfileContainerComponent } from './profile/container/profile-container.component';
 import { ListContainerComponent } from './books-list/container/list-container.component';
 import { ListBooksComponent } from './books-list/components/list-books.component';
+import { AuthGuard } from '../core/guards/auth/auth.guard';
 
 @NgModule({
   declarations: [
@@ -30,5 +31,6 @@ import { ListBooksComponent } from './books-list/components/list-books.component
     SharedModule,
     MaterialModule,
   ],
+  providers: [AuthGuard],
 })
 export class PrivateModule {}

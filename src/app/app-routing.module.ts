@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { QuicklinkStrategy, QuicklinkModule } from 'ngx-quicklink';
 import { NotfoundComponent } from './core/index-core';
 

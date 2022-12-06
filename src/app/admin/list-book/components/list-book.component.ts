@@ -49,11 +49,11 @@ export class ListBookComponent implements OnInit {
     this.show = true;
   }
 
-  getBook(book: Book) {
+  /*   getBook(book: Book) {
     this.bookService.get(book.id).subscribe((book) => {
       localStorage.setItem('book', JSON.stringify(book));
     });
-  }
+  } */
 
   async deleteBook(book: Book) {
     const response = await this.bookService.delete(book.id);

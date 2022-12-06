@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from '../core/guards/auth/auth.guard';
 import { ListContainerComponent } from './books-list/container/list-container.component';
 import { PrivateHomeComponent } from './index-private';
 import { PrivateComponent } from './private.component';
@@ -11,9 +12,21 @@ const routes: Routes = [
     component: PrivateComponent,
     children: [
       { path: '', redirectTo: 'home', pathMatch: 'full' },
-      { path: 'home', component: PrivateHomeComponent },
-      { path: 'profile', component: ProfileContainerComponent },
-      { path: 'my-list', component: ListContainerComponent },
+      {
+        path: 'home',
+        component: PrivateHomeComponent,
+        canActivate: [AuthGuard],
+      },
+      {
+        path: 'profile',
+        component: ProfileContainerComponent,
+        canActivate: [AuthGuard],
+      },
+      {
+        path: 'my-list',
+        component: ListContainerComponent,
+        canActivate: [AuthGuard],
+      },
     ],
   },
 ];

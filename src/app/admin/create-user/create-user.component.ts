@@ -1,17 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  Validators,
-  NonNullableFormBuilder,
-  ValidatorFn,
-  AbstractControl,
-  ValidationErrors,
-  FormBuilder,
-  FormGroup,
-} from '@angular/forms';
+import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { HotToastService } from '@ngneat/hot-toast';
-import { switchMap } from 'rxjs';
-import { ProfileUser } from 'src/app/core/models/user.interface';
 import { UsersService } from 'src/app/core/services/users/Users.Service';
 
 @Component({

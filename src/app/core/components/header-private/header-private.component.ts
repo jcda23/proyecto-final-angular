@@ -1,6 +1,4 @@
-import { DocumentData } from '@angular/fire/firestore';
-import { ProfileUser } from 'src/app/core/models/user.interface';
-import { Component, HostListener, OnInit, ViewChild } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../index-core';
 import { UsersService } from '../../services/users/Users.Service';
@@ -12,12 +10,11 @@ import { UsersService } from '../../services/users/Users.Service';
 })
 export class HeaderPrivateComponent implements OnInit {
   user$ = this.usersService.currentUserProfile$;
-  isLogin = this.authService.authenticated;
   active!: boolean;
   profileActive: boolean = false;
   addBookActive: boolean = true;
   currentId: string;
-  currentUser: DocumentData;
+  isAdmin: boolean = false;
 
   constructor(
     public router: Router,
@@ -27,11 +24,14 @@ export class HeaderPrivateComponent implements OnInit {
 
   ngOnInit(): void {
     this.currentId = JSON.parse(localStorage.getItem('userUid')!);
-    this.usersService.getUser(this.currentId).subscribe((data) => {
-      this.currentUser = data;
-      console.log(this.currentUser['admin']);
-    });
-
+    if (
+      this.currentId === this.authService.uidAdmin1 ||
+      this.currentId === this.authService.uidAdmin2
+    ) {
+      this.isAdmin = true;
+    } else {
+      this.isAdmin = false;
+    }
     if (this.router.url === '/profile') {
       this.profileActive = !this.profileActive;
     }

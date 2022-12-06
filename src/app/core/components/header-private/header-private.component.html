@@ -12,7 +12,7 @@
         <nav class="menu__desktop">
           <a class="hidden" [routerLink]="['/home']">Inicio</a>
           <a class="hidden" [routerLink]="['/my-list']">Mi lista</a>
-          <a class="hidden" href="#">Novedades</a>
+          <a class="hidden" [routerLink]="['/news']">Novedades</a>
         </nav>
         <div class="search visible__header" [ngClass]="{'hidden__header':active}">
           <span>
@@ -44,15 +44,15 @@
             <mat-sidenav-container class="border__down">
               <div class="block px-4 py-2 pt-4">
                 <mat-icon class="avatar">edit</mat-icon>
-                <a href="" class="pl-2 down-menu__link">Inicio</a>
+                <a [routerLink]="['/home']" class="pl-2 down-menu__link">Inicio</a>
               </div>
               <div class="block px-4 py-2">
                 <mat-icon class="avatar">person_add</mat-icon>
-                <a href="" class="pl-2 down-menu__link">Mis libros</a>
+                <a [routerLink]="['/my-list']" class="pl-2 down-menu__link">Mi lista</a>
               </div>
               <div class="block px-4 py-2">
                 <mat-icon class="avatar">delete_forever</mat-icon>
-                <a href="" class="pl-2 down-menu__link">Novedades</a>
+                <a [routerLink]="['/news']" class="pl-2 down-menu__link">Novedades</a>
               </div>
             </mat-sidenav-container>
           </div>
@@ -63,10 +63,6 @@
 
         <section id="dropdawn-2">
           <div class="relative block overflow-hidden focus:outline-none down-content">
-            <ng-container *ngIf="!isLogin">
-              <img [src]="'../../../assets/img/image-placeholder.png'" alt="img-profile"
-                class="object-cover rounded-md down-img">
-            </ng-container>
             <ng-container *ngIf="user$ | async as user">
               <img class="object-cover rounded-md down-img"
                 [src]="user.photoURL ?? '../../../../../assets/img/image-placeholder.png'">
@@ -81,9 +77,6 @@
           <div class="absolute hidden down-menu-2 right-6 top-5 w-52">
             <mat-sidenav-container>
               <div class="flex items-center justify-start w-full pl-4 my-4">
-                <ng-container *ngIf="!isLogin">
-                  <img class="rounded-md avatar" src="../../../assets/img/user-icon.png" />
-                </ng-container>
                 <ng-container *ngIf="user$ | async as user">
                   <img class="rounded-md avatar"
                     [src]="user.photoURL ?? '../../../../../assets/img/image-placeholder.png'">
@@ -96,7 +89,7 @@
                 <a [routerLink]="['/profile']" class="pl-2 down-menu__link">Editar perfil real</a>
               </div>
 
-              <ng-container *ngIf="this.currentUser['admin']">
+              <ng-container *ngIf="isAdmin">
                 <div class="block px-4 py-2">
                   <mat-icon class="avatar">person_add</mat-icon>
                   <a [routerLink]="['/create-user-fake']" class="pl-2 down-menu__link">Añadir usuario fake</a>

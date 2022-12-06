@@ -19,6 +19,8 @@ import { CreateUserComponent } from './create-user/create-user.component';
 import { ListUsersComponent } from './list-users/components/list-users.component';
 import { ListUsersContainerComponent } from './list-users/container/list-users-container.component';
 import { SharedModule } from '../shared/shared.module';
+import { FIREBASE_OPTIONS } from '@angular/fire/compat';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [
@@ -44,6 +46,7 @@ import { SharedModule } from '../shared/shared.module';
   providers: [
     { provide: MAT_DIALOG_DATA, useValue: {} },
     { provide: MatDialogRef, useValue: {} },
+    { provide: FIREBASE_OPTIONS, useValue: environment.firebase },
   ],
 })
 export class AdminModule {}

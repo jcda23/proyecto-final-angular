@@ -1,24 +1,24 @@
-import { ProfileUser } from './../../models/user.interface';
-import { Injectable, NgZone } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Auth, User, GoogleAuthProvider } from '@angular/fire/auth';
 import { from, map, Observable, Subject, takeUntil } from 'rxjs';
 
 import { Router } from '@angular/router';
 import { WrapperFunctionFirebase } from 'src/app/shared/utils/firebase-wrapper';
+import { HotToastService } from '@ngneat/hot-toast';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
   currentUser$ = WrapperFunctionFirebase.authState(this.auth);
-  userData: ProfileUser;
-  isAuthenticated: boolean = false;
+  uidAdmin1: string = 'QchNxmiJZBMLopzmOIVrCwc9Xwx1';
+  uidAdmin2: string = 'XEo4ksXdrgOwjZunHp1WuKjVjZq2';
   destroyed$ = new Subject<void>();
 
   constructor(
     public auth: Auth,
     public router: Router,
-    private ngZone: NgZone
+    public toast: HotToastService
   ) {
     this.currentUser$
       .pipe(
@@ -36,22 +36,15 @@ export class AuthService {
       )
       .subscribe((user: any) => {
         if (user) {
-          this.isAuthenticated = true;
-          this.userData = user;
-          localStorage.setItem('user', JSON.stringify(this.userData));
-          localStorage.setItem('userUid', JSON.stringify(this.userData?.uid));
-          JSON.parse(localStorage.getItem('user')!);
+          localStorage.setItem('userUid', JSON.stringify(user.uid));
         } else {
-          this.isAuthenticated = false;
-          localStorage.setItem('user', 'null');
-          JSON.parse(localStorage.getItem('user')!);
+          localStorage.setItem('userUid', 'null');
         }
       });
   }
 
-  get authenticated(): boolean {
-    const user = JSON.parse(localStorage.getItem('user')!);
-    return user !== null || this.isAuthenticated === true ? true : false;
+  getStatus() {
+    return this.currentUser$;
   }
 
   logout(): Observable<any> {

@@ -42,6 +42,7 @@ export class ProfileComponent implements OnInit {
       .subscribe((user) => {
         this.profileForm.patchValue({ ...user });
       });
+
     this.load();
   }
 
